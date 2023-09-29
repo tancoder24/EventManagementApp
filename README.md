@@ -1,7 +1,7 @@
 # Commit History
-![WhatsApp Image 2023-09-29 at 16 47 02](https://github.com/tancoder24/EventManagementApp/assets/78148494/c3345d48-92dc-4c15-a4e2-15b0e0620156)
-![WhatsApp Image 2023-09-29 at 16 46 43](https://github.com/tancoder24/EventManagementApp/assets/78148494/3c700a93-cf2b-411d-9ac4-6ac299e6b270)
 ![WhatsApp Image 2023-09-29 at 16 46 10](https://github.com/tancoder24/EventManagementApp/assets/78148494/b451c363-d617-40b9-ba0b-e27933937d8b)
+![WhatsApp Image 2023-09-29 at 16 46 43](https://github.com/tancoder24/EventManagementApp/assets/78148494/3c700a93-cf2b-411d-9ac4-6ac299e6b270)
+![WhatsApp Image 2023-09-29 at 16 47 02](https://github.com/tancoder24/EventManagementApp/assets/78148494/c3345d48-92dc-4c15-a4e2-15b0e0620156)
 
 
 # EventManagementApp
