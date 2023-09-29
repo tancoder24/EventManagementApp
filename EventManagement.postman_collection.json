@@ -1,0 +1,1038 @@
+{
+	"info": {
+		"_postman_id": "103b7f73-a4ef-4d93-bde8-4b878933fbb4",
+		"name": "EventManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28967097"
+	},
+	"item": [
+		{
+			"name": "auth-token",
+			"item": [
+				{
+					"name": "admin-api/token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "tanmay2",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "normal_user-api/token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "normaluser1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "venues",
+			"item": [
+				{
+					"name": "list-page_size",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg1MzUyLCJpYXQiOjE2OTU4ODUwNTIsImp0aSI6ImFlNWEzMDJlY2YzZDQ3ODE5ODk4YTZiZDMwZjNhZTAzIiwidXNlcl9pZCI6MX0.mK46LbhXQnC26mTrs-U3o9oBkP7J0m5Mlzi3cTkXDcs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/venues?page_size=1&page=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"venues"
+							],
+							"query": [
+								{
+									"key": "page_size",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODc4NzQ3LCJpYXQiOjE2OTU4Nzg0NDcsImp0aSI6IjRiZTIxMDE2YTU2ZjRjODI4Y2YyZjljZDRlNDg0MGJiIiwidXNlcl9pZCI6MX0.dGPa2V5lZHb_hVvfkFySyoLm9B6XiGJJ4qH7byjijPA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/venues/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"venues",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODc4NzQ3LCJpYXQiOjE2OTU4Nzg0NDcsImp0aSI6IjRiZTIxMDE2YTU2ZjRjODI4Y2YyZjljZDRlNDg0MGJiIiwidXNlcl9pZCI6MX0.dGPa2V5lZHb_hVvfkFySyoLm9B6XiGJJ4qH7byjijPA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"VenueA-Created\",\n    \"capacity\": 1000,\n    \"amenities\": \"all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/venues/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"venues",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "partial-update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg0NzU5LCJpYXQiOjE2OTU4ODQ0NTksImp0aSI6IjlkZDIyNWEwNGE3YTRmY2FhY2I5Y2M5NjdlNTJhZTQ4IiwidXNlcl9pZCI6MX0.JTcid66Rmvz7q5VkIO-uJkup7_JvYNoleNbvJjbQBJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"VenueA-Created-updated\",\n    \"capacity\": 10000,\n    \"amenities\": \"all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/venues/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"venues",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg0NzU5LCJpYXQiOjE2OTU4ODQ0NTksImp0aSI6IjlkZDIyNWEwNGE3YTRmY2FhY2I5Y2M5NjdlNTJhZTQ4IiwidXNlcl9pZCI6MX0.JTcid66Rmvz7q5VkIO-uJkup7_JvYNoleNbvJjbQBJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"VenueA-Created-updated\",\n    \"capacity\": 100000,\n    \"amenities\": \"all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/venues/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"venues",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODc5MzIwLCJpYXQiOjE2OTU4NzkwMjAsImp0aSI6ImZjZmE0ZGZhZDYyNjQ5MDQ4OTczNjM5MzdmNzZkNDFiIiwidXNlcl9pZCI6MX0.hZU5PdtAdU7RYRbeYqpJZwfGCXmCDUWzc2ifWawHY30",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"VenueA-Created\",\n    \"capacity\": 1000,\n    \"amenities\": \"all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/venues/4/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"venues",
+								"4",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "list-category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg2NjY5LCJpYXQiOjE2OTU4ODYzNjksImp0aSI6IjAyNzg2N2FhOGRiMTRlZTI4ZDY1YTBlNTk2N2M0ZjcwIiwidXNlcl9pZCI6MX0.5A6YWdhH4kPb5pjAzq631zEoRBRohrPckIPOfPu8Gqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/events?category=Networking",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Networking"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list-page_size",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg2OTY4LCJpYXQiOjE2OTU4ODY2NjgsImp0aSI6ImI4Y2EwZDYxNGVlMDRhMDdiYzlkZDZhZTg0YjcxYzUyIiwidXNlcl9pZCI6MX0.Lf-lZ8Vbxx-SJoS1TN4A9Ip2-jGQCTdB3yIraItLG9k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/events?page_size=2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events"
+							],
+							"query": [
+								{
+									"key": "page_size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg3NTc1LCJpYXQiOjE2OTU4ODcyNzUsImp0aSI6IjRlY2YzYTkzMGMyZDRlNzdiNTZlOGQ5NjAwNzIyYWYzIiwidXNlcl9pZCI6MX0.dj-6qW1YXPCFGgBuFM8Ozhn_61e34Qytv1uHum7EedY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/events/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg4NTU3LCJpYXQiOjE2OTU4ODgyNTcsImp0aSI6Ijk3ZTJiNGQyZmFkMTQ1MjM5NDEyMmE4YzM5MDI5M2JkIiwidXNlcl9pZCI6Mn0.9T9l_Kyklx5mH6xfc51PjE56g1qsCi300-un1wMfgIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"EventCreated\",\n    \"description\": \"all\",\n    \"date\": \"2023-09-30\",\n    \"time\": \"04:55:58\",\n    \"capacity\": 420,\n    \"category\": \"Family & Kids\",\n    \"location\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/events/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg4MjU2LCJpYXQiOjE2OTU4ODc5NTYsImp0aSI6IjdjN2Q3ZDVhYmQ4NTQ4NzM4YjVmOWVhNTcyMDBkZTYzIiwidXNlcl9pZCI6Mn0.LA4Zyn98Cv1OE2-RIC5FHmYk0bEtb9kfLY3RWyeC3O4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"EventBupdated\",\n    \"description\": \"all\",\n    \"date\": \"2023-09-30\",\n    \"time\": \"04:55:58\",\n    \"capacity\": 420,\n    \"category\": \"Family & Kids\",\n    \"location\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/events/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg4MjU2LCJpYXQiOjE2OTU4ODc5NTYsImp0aSI6IjdjN2Q3ZDVhYmQ4NTQ4NzM4YjVmOWVhNTcyMDBkZTYzIiwidXNlcl9pZCI6Mn0.LA4Zyn98Cv1OE2-RIC5FHmYk0bEtb9kfLY3RWyeC3O4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"EventBupdated\",\n    \"description\": \"all\",\n    \"date\": \"2023-09-30\",\n    \"time\": \"04:55:58\",\n    \"capacity\": 420,\n    \"category\": \"Family & Kids\",\n    \"location\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/events/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg4NTU3LCJpYXQiOjE2OTU4ODgyNTcsImp0aSI6Ijk3ZTJiNGQyZmFkMTQ1MjM5NDEyMmE4YzM5MDI5M2JkIiwidXNlcl9pZCI6Mn0.9T9l_Kyklx5mH6xfc51PjE56g1qsCi300-un1wMfgIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/events/6/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								"6",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg5ODMzLCJpYXQiOjE2OTU4ODk1MzMsImp0aSI6Ijg0NDljMGFiYjI2NDQ3MDRiZGUxMzkwYWI0Zjc4YjFlIiwidXNlcl9pZCI6Mn0._WR1OUVKFYx1GVqzt3rj2YbPwW-FND_yfxTJCk9sZrw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODkwMDM2LCJpYXQiOjE2OTU4ODk3MzYsImp0aSI6IjAzNzMzMTFkMDdmMjRlNmJhMWNjMGRiMTRlNTU4Y2IzIiwidXNlcl9pZCI6Mn0.A_xh7-P6i52Tr3jGOK4y7zlT615CYun3d8Lr6ywXRoU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODg5NDkwLCJpYXQiOjE2OTU4ODkxOTAsImp0aSI6IjM4NmNkOTMyMWRhYjQxYTVhZTk3OGQzYjQ3NzQ1YzBhIiwidXNlcl9pZCI6MX0.kk5KDvfMBSpRBMJO4WPbSTuxBaKMVy0pJMrfyeVePQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"tan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"Abcd@1234\",\n    \"username\": \"temp_user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODkwMDM2LCJpYXQiOjE2OTU4ODk3MzYsImp0aSI6IjAzNzMzMTFkMDdmMjRlNmJhMWNjMGRiMTRlNTU4Y2IzIiwidXNlcl9pZCI6Mn0.A_xh7-P6i52Tr3jGOK4y7zlT615CYun3d8Lr6ywXRoU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"tan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/6/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"6",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registration",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODkyMTU2LCJpYXQiOjE2OTU4OTE4NTYsImp0aSI6IjY3ODFiZDZmNGFkZDQwMjA5Zjc0YzZmZmE3YTBjZWNkIiwidXNlcl9pZCI6Mn0.NllN8bS5GP8tdAJA4n6VYF-kMNx2QeFnuWd2OZqeUww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/registrations?page_size=1&user=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"registrations"
+							],
+							"query": [
+								{
+									"key": "page_size",
+									"value": "1"
+								},
+								{
+									"key": "user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODkyNjIwLCJpYXQiOjE2OTU4OTIzMjAsImp0aSI6Ijk2ZWMwNjY1YWRlYTRkMDk4ZWY3ZDE5ZDJmMzcxYmNlIiwidXNlcl9pZCI6NX0.HHtrr2NQSm2d0ZUeGh2g6QT7jg9EHISPGVAeKTMwCLQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/registrations/4/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"registrations",
+								"4",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODkyMzUwLCJpYXQiOjE2OTU4OTIwNTAsImp0aSI6IjFkOTIzYzAyMWNhNzRlZTBhODM1NDQ0YzE3YWJhNGU3IiwidXNlcl9pZCI6NX0.quOuKb2Bor7QFSzyI7owhAp1kNzQtPRujTxsQi3kus4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "event",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/registrations/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"registrations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "partial-update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODkyNzc5LCJpYXQiOjE2OTU4OTI0NzksImp0aSI6IjJlYmIzN2RlOWExMDQ0OTdhODA5MGM0M2E5YWZlZTEwIiwidXNlcl9pZCI6Mn0.60kAV0S4B5FBct8uPQRU8uHw9S8rJ095mv5KbBVPZs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "accepted",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/registrations/4/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"registrations",
+								"4",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registration-export",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODk0MjM1LCJpYXQiOjE2OTU4OTM5MzUsImp0aSI6ImZlZTA0ZTRiYjViNTQxNjU4NjdjZDA1OGIwOTAzMjE4IiwidXNlcl9pZCI6Mn0.GBLik3VZ2LI020TCvW_i6y4KSQqidTekgpEugfEBDLc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/registration_export/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"registration_export",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
